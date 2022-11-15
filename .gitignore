@@ -1,5 +1,14 @@
+# Ignore large files
+.vscode
+*.tar
+*.tar.gz
+*.zip
+data/llff
+data/blender
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
+
 *.py[cod]
 *$py.class
 
