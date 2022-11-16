@@ -4,6 +4,14 @@ print_usage() {
     echo "Usage: $0 <llff|blender> <group_name> [scene [name]]"
 }
 
+# Start visdom server
+python -m visdom.server &
+
+PID=$!
+
+echo "Visdom server started with PID $PID"
+echo .visdom_pid >$PID
+
 # Dataset
 DATASET=$1
 
@@ -47,3 +55,6 @@ fi
 # Actually train
 echo "Training on blender scene ${SCENE} with group ${GROUP}"
 python3 train.py --group=$GROUP --model=barf --yaml=barf_$DATASET --name=$NAME --data.scene=$SCENE --barf_c2f=[0.1,0.5]
+
+# Kill visdom server on exit
+kill -9 $PID
