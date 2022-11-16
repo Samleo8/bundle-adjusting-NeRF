@@ -60,7 +60,9 @@ For convenience, you can download them with the following script: (under this re
 ### Running the code
 
 - #### BARF models
+  
   To train and evaluate BARF:
+
   ```bash
   # <GROUP> and <NAME> can be set to your likes, while <SCENE> is specific to datasets
   
@@ -72,6 +74,16 @@ For convenience, you can download them with the following script: (under this re
   python3 train.py --group=<GROUP> --model=barf --yaml=barf_llff --name=<NAME> --data.scene=<SCENE> --barf_c2f=[0.1,0.5]
   python3 evaluate.py --group=<GROUP> --model=barf --yaml=barf_llff --name=<NAME> --data.scene=<SCENE> --resume
   ```
+
+  *NOTE:* I've added some scripts into the `scripts` directory to make it easier to run the code. You can run the above commands with the following scripts:
+  
+  ```bash
+  ./scripts/train.sh <DATASET=(blender|llff)> <GROUP>  <SCENE> [NAME=(SCENE by default)]
+  ./scripts/train_all.sh <DATASET=(blender|llff)> <GROUP>
+
+  ./scripts/eval.sh <DATASET=(blender|llff)> <GROUP>  <SCENE> [NAME=(SCENE by default)]
+  ```
+
   All the results will be stored in the directory `output/<GROUP>/<NAME>`.
   You may want to organize your experiments by grouping different runs in the same group.
 
