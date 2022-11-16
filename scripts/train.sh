@@ -5,7 +5,7 @@ print_usage() {
 }
 
 # Start visdom server
-python -m visdom.server &
+visdom -port 9000 &
 
 PID=$!
 
