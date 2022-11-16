@@ -5,6 +5,7 @@ print_usage() {
 }
 
 # Git pull
+echo "" >nohup.out
 git pull
 
 # Dataset
