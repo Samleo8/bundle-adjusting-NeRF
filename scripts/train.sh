@@ -4,6 +4,9 @@ print_usage() {
     echo "Usage: $0 <llff|blender> <group_name> [scene [name]]"
 }
 
+# Git pull
+git pull
+
 # Start visdom server
 visdom -port 9000 &
 
