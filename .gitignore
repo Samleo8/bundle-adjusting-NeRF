@@ -5,6 +5,7 @@
 *.zip
 data/llff
 data/blender
+output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
