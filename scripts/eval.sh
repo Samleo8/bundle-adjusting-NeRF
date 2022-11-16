@@ -13,10 +13,10 @@ VALID_SCENES_BLENDER=("chair" "drums" "ficus" "hotdog" "lego" "materials" "mic" 
 
 # Get valid scenes
 case $DATASET in
-llff)
+'llff')
     VALID_SCENES=("${VALID_SCENES_LLFF[@]}")
     ;;
-blender)
+'blender')
     VALID_SCENES=("${VALID_SCENES_BLENDER[@]}")
     ;;
 *)
@@ -30,10 +30,10 @@ esac
 GROUP=$2
 
 # Scene
-SCENE=$3
-NAME=${4:-$VALID_SCENES[0]}
+SCENE=${3:-${VALID_SCENES[0]}}
+NAME=${4:-${SCENE}}
 
-if [[ ! " ${VALID_SCENES_BLENDER[@]} " =~ " ${SCENE} " ]]; then
+if [[ ! " ${VALID_SCENES[@]} " =~ " ${SCENE} " ]]; then
     echo "Invalid scene name: $SCENE"
     exit 1
 fi
