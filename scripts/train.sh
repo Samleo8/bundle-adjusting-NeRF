@@ -10,7 +10,7 @@ python -m visdom.server &
 PID=$!
 
 echo "Visdom server started with PID $PID"
-echo .visdom_pid >$PID
+echo $PID >.visdom_pid
 
 # Dataset
 DATASET=$1
