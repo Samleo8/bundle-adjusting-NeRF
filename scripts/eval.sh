@@ -29,6 +29,12 @@ esac
 # Group name
 GROUP=$2
 
+if [ -z "$GROUP" ]; then
+    echo "Group name not specified"
+    print_usage
+    exit 1
+fi
+
 # Scene
 SCENE=${3:-${VALID_SCENES[0]}}
 NAME=${4:-${SCENE}}
@@ -41,4 +47,4 @@ fi
 # Actually evaluate
 echo "Evaluating on blender scene ${SCENE} with group ${GROUP}"
 
-python3 evaluate.py --group=${GROUP} --yaml=barf_blender --name= --resume ${GROUP} --model=barf ${NAME} --data.scene=${SCENE} --data.val_sub=
+python3 evaluate.py --group=$GROUP --model=barf --yaml=barf_$DATASET --name=$NAME --data.scene=$SCENE --resume
