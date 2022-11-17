@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_usage() {
-    echo "Usage: $0 <llff|blender> <group_name> [scene [name]]"
+    echo "Usage: $0 <dataset:llff|blender> <group_name> [scene [name]]"
 }
 
 # Git pull

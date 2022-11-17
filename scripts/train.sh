@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_usage() {
-    echo "Usage: $0 <llff|blender> <group_name> [scene [name]]"
+    echo "Usage: $0 <dataset:llff|blender> <group_name> [scene [name]]"
 }
 
 # Git pull
@@ -62,3 +62,6 @@ python3 train.py --group=$GROUP --model=barf --yaml=barf_$DATASET --name=$NAME -
 
 # Kill visdom server on exit
 kill -9 $PID
+
+# Evaluate on completion
+./scripts/eval.sh $DATASET $GROUP $SCENE
