@@ -49,6 +49,6 @@ if [[ ! " ${VALID_SCENES[@]} " =~ " ${SCENE} " ]]; then
 fi
 
 # Actually evaluate
-echo "Evaluating on blender scene ${SCENE} with group ${GROUP}"
+echo "Evaluating on ${DATASET} scene ${SCENE} with group ${GROUP}"
 
 python3 evaluate.py --group=$GROUP --model=barf --yaml=barf_$DATASET --name=$NAME --data.scene=$SCENE --resume

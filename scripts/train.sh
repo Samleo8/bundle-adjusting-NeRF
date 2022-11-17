@@ -57,7 +57,7 @@ if [[ ! " ${VALID_SCENES[@]} " =~ " ${SCENE} " ]]; then
 fi
 
 # Actually train
-echo "Training on blender scene ${SCENE} with group ${GROUP}"
+echo "Training on ${DATASET} scene ${SCENE} with group ${GROUP}"
 python3 train.py --group=$GROUP --model=barf --yaml=barf_$DATASET --name=$NAME --data.scene=$SCENE --barf_c2f=[0.1,0.5]
 
 # Kill visdom server on exit
