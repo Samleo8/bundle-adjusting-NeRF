@@ -56,6 +56,7 @@ class Model(nerf.Model):
             self.sched_pose = scheduler(self.optim_pose, **kwargs)
 
     def train_iteration(self, opt, var, loader):
+        # TODO: NOTE: Pose training part is here!
         self.optim_pose.zero_grad()
         if opt.optim.warmup_pose:
             # simple linear warmup of pose learning rate
@@ -286,7 +287,7 @@ class Graph(nerf.Graph):
             else:
                 pose = self.pose_eye
             # TODO: Where is the backprop for the pose? here?
-            # TODO: SE3 refine is a torch.nn.Embedding
+            # TODO: SE3 refine is a torch.nn.Embedding (and only appears in BARF)
             # add learnable pose correction
             var.se3_refine = self.se3_refine.weight[var.idx]
             pose_refine = camera.lie.se3_to_SE3(var.se3_refine)
